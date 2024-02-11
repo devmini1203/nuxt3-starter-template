@@ -1,32 +1,44 @@
 module.exports = {
+  // 프로젝트의 루트 디렉토리에서 .eslintrc.cjs 파일을 찾는다.
   root: true,
   env: {
-    browser: true,
-    es2021: true,
-    node: true
+    // 코드가 실행되는 환경 설정
+    browser: true, // 브라우저 환경에서 실행
+    node: true // 노드 환경에서 실행
   },
-  parser: 'vue-eslint-parser',
+  parser: 'vue-eslint-parser', // Vue.js 코드를 분석할 때 사용할 파서 지정
   parserOptions: {
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module'
+    parser: '@typescript-eslint/parser', // TypeScript 코드를 파싱하는 데 사용할 파서 지정
+    sourceType: 'module' // ECMAScript 모듈 형식으로 코드 작성
   },
+  // 사용할 ESLint 플러그인 목록 - Typescript
   plugins: ['vue', '@typescript-eslint', 'prettier'],
+  // 사용할 ESLint 확장 구성 목록
   extends: [
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
-    'airbnb-base',
-    'plugin:vue/vue3-recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    '@nuxtjs/eslint-config-typescript',
+    'airbnb-base', // airbnb에서 사용하는 JavaScript 스타일 가이드
+    'plugin:prettier/recommended', // Prettier와 ESLint의 충돌을 방지하기 위한 규칙
+    'plugin:nuxt/recommended', // Nuxt.js 관련 규칙
+    'plugin:vue/vue3-recommended', // Vue.js 관련 규칙
+    'plugin:@typescript-eslint/eslint-recommended', // TypeScript ESLint 규칙
+    '@nuxtjs/eslint-config-typescript', // Nuxt.js 프로젝트에서 TypeScript와 함께 사용되는 ESLint 규칙
     'prettier'
   ],
+  // 사용자 정의 규칙 설정
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
     'no-await-in-loop': 'off',
     'vue/no-multiple-template-root': 'off',
+    'prefer-const': [
+      'off',
+      {
+        destructuring: 'any',
+        ignoreReadBeforeAssign: false
+      }
+    ],
     'no-underscore-dangle': 'off',
     'import/newline-after-import': 'off',
     'no-empty': 'off',
+    'vue/no-unused-vars': 'off',
     'vue/no-mutating-props': 'off',
     'vue/attributes-order': 'off',
     'vue/v-on-event-hyphenation': 'off',
@@ -75,16 +87,8 @@ module.exports = {
         message: '`with` is disallowed in strict mode because it makes code impossible to predict and optimize.'
       }
     ],
-    'prefer-destructuring': [
-      'error',
-      {
-        array: false,
-        object: true
-      },
-      {
-        enforceForRenamedProperties: false
-      }
-    ],
+    'prefer-template': 'off',
+    'prefer-destructuring': 'off',
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     'vue/no-setup-props-destructure': 'off',
     'max-len': [
