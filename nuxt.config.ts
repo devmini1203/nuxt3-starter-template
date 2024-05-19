@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   // 개발 환경에서만 NUXT devtools 활성화
   devtools: { enabled: process.env.NODE_ENV === 'development' },
   // NUXT module name 기입
-  modules: ['@nuxtjs/eslint-module', '@pinia/nuxt'],
+  modules: ['@nuxtjs/eslint-module', '@pinia/nuxt', '@nuxt/image'],
   // 전역으로 관리하고 싶은 css or scss 파일 등록시 해당 속성에 기입
   css: [],
   // 피니아 관련 설정
