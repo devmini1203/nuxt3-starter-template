@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "nuxt": "3.11.1",
+    "nuxi": "3.11.1",
     "@nuxt/devtools": "^1.0.5",
     "vue-router": "^4.2.5",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
